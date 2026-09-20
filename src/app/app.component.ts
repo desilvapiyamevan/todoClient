@@ -3,9 +3,9 @@ import { TodoService } from './services/todo.service';
 import { TodoItem } from './models/todo.model';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    standalone: false
 })
 export class AppComponent implements OnInit {
 
