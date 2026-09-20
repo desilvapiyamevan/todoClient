@@ -9,6 +9,7 @@ import { TodoItem } from './models/todo.model';
 })
 export class AppComponent implements OnInit {
 
+  title = 'todoClient'; 
   readonly todos = signal<TodoItem[]>([]);
   readonly toDoTitle = signal('');
   readonly toDoDescription = signal('');
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
           this.loading.set(false);
         },
         error: () => {
-          this.error.set('Could not load your to-do list. Is the API running?');
+          this.error.set('Could not load your to-do list. Check the back end API is healthy.');
           this.loading.set(false);
         },
       })

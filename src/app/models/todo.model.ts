@@ -1,9 +1,7 @@
-export interface TodoItem {
+export interface TodoItem extends ToDoCreateRequest {
   toDoItemId: number;
   isCompleted: boolean;
   createdDate: string;
-  title: string;
-  description: string;
 }
 
 export interface ToDoCreateRequest {

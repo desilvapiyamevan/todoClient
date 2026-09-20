@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToDoCreateRequest, TodoItem } from '../models/todo.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,15 +10,15 @@ import { ToDoCreateRequest, TodoItem } from '../models/todo.model';
 })
 export class TodoService {
 
-  private apiUrl = 'http://localhost:5257/api/todos';
-
+  private apiUrl = `${environment.apiUrl}/todos`;
   constructor(private http: HttpClient) { }
-
-
   getTodos(): Observable<TodoItem[]> {
     return this.http.get<TodoItem[]>(this.apiUrl);
   }
 
+  getTodoById(id: number): Observable<TodoItem> {
+    return this.http.get<TodoItem>(`this.apiUrl/${id}`);
+  }
   addTodo(title: string, description: string): Observable<ToDoCreateRequest> {
     return this.http.post<ToDoCreateRequest>(this.apiUrl, {
       title,
