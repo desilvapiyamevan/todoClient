@@ -1,40 +1,35 @@
-
 <div class="todoClient">
-  <h2 class="title">To-Do List</h2>
+  <h2 class="title">My To-Do List</h2>
 
   <form class="client-form" (ngSubmit)="addTodo()">
-    <input type="text" placeholder="Your to do Item?" aria-label="to-do title" [ngModel]="toDoTitle()"
+    <input type="text" placeholder="Enter your To-Do Item" aria-label="to-do title" [ngModel]="toDoTitle()"
       (ngModelChange)="toDoTitle.set($event)" name="title" />
     <br />
-    <br />
-    <br />
-    <br />
-    <input type="textArea" placeholder="Description of the item?" aria-label="Description of the item"
-      [ngModel]="toDoDescription()" (ngModelChange)="toDoDescription.set($event)" name="title" />
+    <textarea placeholder="Enter your To-Do Description" aria-label="Description of the item"
+      [ngModel]="toDoDescription()" (ngModelChange)="toDoDescription.set($event)" name="description"></textarea>
     <button type="submit" [disabled]="!toDoTitle().trim() || !toDoDescription().trim()">Add</button>
   </form>
-  <p class="client-error" role="alert" *ngIf="error() as message">{{ message }}</p>
 
-  <ng-container *ngIf="loading(); else notLoading">
+  @if (error(); as message) {
+    <p class="client-error" role="alert">{{ message }}</p>
+  }
+
+  @if (loading()) {
     <p class="client-status">Loading…</p>
-  </ng-container>
-
-  <ng-template #notLoading>
-    <ng-container *ngIf="todos().length === 0; else list">
-      <p class="client-status">Nothing here yet — add your first item above.</p>
-    </ng-container>
-
-    <ng-template #list>
-      <ul class="client-list">
-        <li class="client-item" *ngFor="let todo of todos(); trackBy: trackById">
+  } @else if (todos().length === 0) {
+    <p class="client-status">No To-Do's. — Add your first item.</p>
+  } @else {
+    <ul class="client-list">
+      @for (todo of todos();) {
+        <li class="client-item">
           <span>{{ todo.title }}</span>
+          <span>{{ truncate(todo.description) }}</span>
           <button type="button" class="todo-client__delete" (click)="deleteTodo(todo.toDoItemId)"
             [attr.aria-label]="'Delete ' + todo.title">
             Delete
           </button>
         </li>
-      </ul>
-    </ng-template>
-  </ng-template>
-
+      }
+    </ul>
+  }
 </div>

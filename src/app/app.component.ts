@@ -3,9 +3,9 @@ import { TodoService } from './services/todo.service';
 import { TodoItem } from './models/todo.model';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: false
 })
 export class AppComponent implements OnInit {
 
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   addTodo(): void {
-   
+
     if (!this.toDoTitle().trim()) {
       return;
     }
@@ -61,7 +61,8 @@ export class AppComponent implements OnInit {
       .subscribe(() => this.loadTodos());
   }
 
-  trackById(_index: number, todo: TodoItem): number {
-    return todo.toDoItemId;
+  truncate(text: string, limit: number = 50): string {
+    if (!text) return '';
+    return text.length > limit ? text.slice(0, limit) + '...' : text;
   }
 }
