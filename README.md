@@ -19,6 +19,7 @@ Open the Application on VS code
 3. To run API backend
     3.1 cd todoApi
     3.2 dotnet run
+    3.3 dot net 10
 4. Open browser and browse "http://localhost:4200/"
 
 ## Development server
