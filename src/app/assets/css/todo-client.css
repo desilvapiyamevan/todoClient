@@ -1,0 +1,87 @@
+.todoClient {
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  color: #1f2933;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.client-form input {
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+}
+
+.client-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.client-form button:disabled {
+  background-color: #9fb8e8;
+  cursor: not-allowed;
+}
+
+.client-status {
+  color: #52606d;
+  font-style: italic;
+}
+
+.client-error {
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
+  color: #991b1b;
+  background-color: #fee2e2;
+  border: 1px solid #f3c6c6;
+  border-radius: 6px;
+}
+
+.client-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.1rem;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.todo-client__delete {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+  background: transparent;
+  border: 1px solid #f3c6c6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.todo-client__delete:hover {
+  background-color: #fee2e2;
+}
